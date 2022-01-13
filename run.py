@@ -98,6 +98,19 @@ def calculate_surplus_data(sales_row):
 #     surplus_worksheet.append_row(data)
 #     print("Sales worksheet updated successfully.\n")
 
+def get_last_5_entries_sales():
+    """
+    Collects collumns of data from sales worksheet
+    """
+    sales = SHEET.worksheet("sales")
+
+    columns = []
+    for ind in range(1, 7):
+        column = sales.col_values(ind)
+        columns.append(column[-5:])
+    return columns
+
+
 
 def main():
     """
@@ -112,3 +125,5 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
+
+get_last_5_entries_sales()
